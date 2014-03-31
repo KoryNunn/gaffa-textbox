@@ -86,6 +86,14 @@ function updateRequired(viewModel, value){
     }
 }
 
+function updateMaxLength(viewModel, value){
+    if(value != null){
+        viewModel.renderedElement.setAttribute('maxlength', value);
+    }else{
+        viewModel.renderedElement.removeAttribute('maxlength');
+    }
+}
+
 function Textbox(){}
 Textbox = Gaffa.createSpec(Textbox, Gaffa.View);
 Textbox.prototype.type = viewType;
@@ -103,6 +111,8 @@ Textbox.prototype.render = function(){
 Textbox.prototype.value = new Gaffa.Property(updateValue);
 
 Textbox.prototype.subType = new Gaffa.Property(updateSubType);
+
+Textbox.prototype.maxLength = new Gaffa.Property(updateMaxLength);
 
 Textbox.prototype.placeholder = new Gaffa.Property(updatePlaceholder);
 
