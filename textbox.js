@@ -1,6 +1,5 @@
 var Gaffa = require('gaffa'),
     crel = require('crel'),
-    viewType = "textbox",
     doc = require('doc-js');
 
 function setValue(event){
@@ -62,7 +61,7 @@ function updateValue(viewModel, value){
     }
 }
 
-function updateSubType(viewModel, value){
+function updateType(viewModel, value){
     viewModel.renderedElement.setAttribute('type', value != null ? value : "");
 }
 
@@ -96,7 +95,7 @@ function updateMaxLength(viewModel, value){
 
 function Textbox(){}
 Textbox = Gaffa.createSpec(Textbox, Gaffa.View);
-Textbox.prototype.type = viewType;
+Textbox.prototype._type = 'textbox';
 
 Textbox.prototype.render = function(){
     var renderedElement = crel('input'),
@@ -110,7 +109,7 @@ Textbox.prototype.render = function(){
 
 Textbox.prototype.value = new Gaffa.Property(updateValue);
 
-Textbox.prototype.subType = new Gaffa.Property(updateSubType);
+Textbox.prototype.type = new Gaffa.Property(updateType);
 
 Textbox.prototype.maxLength = new Gaffa.Property(updateMaxLength);
 
