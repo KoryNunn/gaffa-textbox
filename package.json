@@ -18,5 +18,8 @@
   "peerDependencies": {
     "gaffa": "^1.4.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "gaffa-formelement": "^1.0.1"
+  }
 }
