@@ -6,7 +6,7 @@ function setValue(event){
     var input = event.target,
         viewModel = input.viewModel;
 
-    if (viewModel.subType.value === "number") {
+    if (viewModel.type.value === "number") {
         viewModel.value.set(parseFloat(input.value));
     } else {
         viewModel.value.set(input.value);
