@@ -17,4 +17,19 @@ Textbox.prototype.maxLength = new Gaffa.Property(function(view, value){
     }
 });
 
+Textbox.prototype.min = new Gaffa.Property(function(view, value){
+    if(value != null) {
+        view.formElement.setAttribute('min', value);
+    } else {
+        view.formElement.removeAttribute('min');
+    }
+});
+Textbox.prototype.max = new Gaffa.Property(function(view, value){
+    if(value != null) {
+        view.formElement.setAttribute('max', value);
+    } else {
+        view.formElement.removeAttribute('max');
+    }
+});
+
 module.exports = Textbox;
